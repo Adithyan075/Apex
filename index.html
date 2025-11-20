@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apex Academy - ECE & EEE Coaching</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', sans-serif; background:#f8fafc; color:#1e293b; }
+    .hero-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .gradient-text { background: linear-gradient(90deg,#667eea,#764ba2); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .pulse { animation:pulse 2s infinite; }
+    @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(37,211,102,0.7)} 70%{box-shadow:0 0 0 20px rgba(37,211,102,0)} 100%{box-shadow:0 0 0 0 rgba(37,211,102,0)} }
+    .card-hover { transition:all 0.4s; }
+    .card-hover:hover { transform:translateY(-12px); box-shadow:0 20px 40px rgba(0,0,0,0.15); }
+    .icon-fix { margin-bottom: 3rem !important; } /* No more J/Y cut-off */
+    .loader { position:fixed; top:0; left:0; width:100%; height:100%; background:#fff; z-index:9999; display:flex; align-items:center; justify-content:center; justify-content:center; }
+    .spinner { width:60px; height:60px; border:6px solid #f3f3f3; border-top:6px solid #764ba2; border-radius:50%; animation:spin 1s linear infinite; }
+    @keyframes spin { 0% { transform:rotate(0deg); } 100% { transform:rotate(360deg); } }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Loading Screen -->
+  <div id="loader" class="loader">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/919999999999" target="_blank"
+    class="fixed bottom-8 right-8 z-50 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl pulse">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full bg-white shadow-lg z-40">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-center md:justify-between items-center">
+      <h1 class="text-4xl font-bold gradient-text hidden md:block">APEX ACADEMY</h1>
+      <div class="space-x-8 text-lg font-medium">
+        <a href="#home" class="nav-link hover:text-purple-600">Home</a>
+        <a href="#faculty" class="nav-link hover:text-purple-600">Faculty</a>
+        <a href="#subjects" class="nav-link hover:text-purple-600">Subjects</a>
+        <a href="study-materials.html" class="loading-link hover:text-purple-600">Notes</a>
+        <a href="#contact" class="nav-link hover:text-purple-600">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-center text-white px-6 pt-20">
+    <div>
+      <h1 class="text-7xl md:text-9xl font-black mb-8 leading-none">APEX<br>ACADEMY</h1>
+      <p class="text-3xl md:text-5xl mb-12 leading-tight">Handwritten Notes • Clear Concepts • Top Ranks</p>
+      <div class="flex flex-col md:flex-row gap-8 justify-center">
+        <a href="study-materials.html" class="loading-link bg-white text-purple-700 px-16 py-8 rounded-2xl text-3xl font-bold card-hover shadow-2xl">Free Notes 🚀</a>
+        <a href="#contact" class="nav-link bg-white/30 backdrop-blur px-16 py-8 rounded-2xl text-3xl font-bold card-hover border-2 border-white">Join Now 💬</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Faculty -->
+  <section id="faculty" class="py-32 px-6 bg-white">
+    <h2 class="text-5xl font-bold text-center gradient-text mb-16 leading-none">Your Mentor</h2>
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <div class="text-center">
+        <img src="faculty-photo.jpg" alt="Adithyan S" class="w-80 h-80 object-cover rounded-full mx-auto border-8 border-purple-300 shadow-2xl">
+        <p class="mt-6 text-xl font-medium">Adithyan S</p>
+      </div>
+      <div>
+        <h3 class="text-4xl font-bold mb-4 leading-none">ADITHYAN S</h3>
+        <p class="text-2xl text-purple-600 mb-6">Founder & Senior Faculty</p>
+        <p class="text-xl mb-8 leading-relaxed">Diploma in Electronics • 2+ Years Teaching Experience<br>Making ECE & EEE Easy!</p>
+        <p class="font-semibold mb-4">Subjects Handled:</p>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-purple-100 py-3 px-5 rounded-lg text-center">Electronic Circuits</div>
+          <div class="bg-purple-100 py-3 px-5 rounded-lg text-center">Analog Communication</div>
+          <div class="bg-purple-100 py-3 px-5 rounded-lg text-center">Digital Electronics</div>
+          <div class="bg-purple-100 py-3 px-5 rounded-lg text-center">Network Analysis</div>
+          <div class="bg-purple-100 py-3 px-5 rounded-lg text-center">Basic Electronics</div>
+          <div class="bg-purple-100 py-3 px-5 rounded-lg text-center">Basic Fundamentals</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subjects -->
+  <section id="subjects" class="py-32 px-6 bg-gray-50">
+    <h2 class="text-5xl font-bold text-center gradient-text mb-20 leading-none">Subjects We Master</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto">
+      <div class="bg-white p-12 rounded-3xl text-center card-hover shadow-xl border-4 border-cyan-300">
+        <i class="fas fa-microchip text-7xl text-cyan-600 icon-fix"></i>
+        <h3 class="text-2xl font-bold leading-none">Electronic Circuits</h3>
+      </div>
+      <div class="bg-white p-12 rounded-3xl text-center card-hover shadow-xl border-4 border-purple-300">
+        <i class="fas fa-broadcast-tower text-7xl text-purple-600 icon-fix"></i>
+        <h3 class="text-2xl font-bold leading-none">Analog Communication Engineering</h3>
+      </div>
+      <div class="bg-white p-12 rounded-3xl text-center card-hover shadow-xl border-4 border-blue-300">
+        <i class="fas fa-digital-tachograph text-7xl text-blue-600 icon-fix"></i>
+        <h3 class="text-2xl font-bold leading-none">Digital Electronics</h3>
+      </div>
+      <div class="bg-white p-12 rounded-3xl text-center card-hover shadow-xl border-4 border-green-300">
+        <i class="fas fa-project-diagram text-7xl text-green-600 icon-fix"></i>
+        <h3 class="text-2xl font-bold leading-none">Electric Circuits & Network Analysis</h3>
+      </div>
+      <div class="bg-white p-12 rounded-3xl text-center card-hover shadow-xl border-4 border-yellow-300">
+        <i class="fas fa-lightbulb text-7xl text-yellow-600 icon-fix"></i>
+        <h3 class="text-2xl font-bold leading-none">Basic Electronics</h3>
+      </div>
+      <div class="bg-white p-12 rounded-3xl text-center card-hover shadow-xl border-4 border-indigo-300">
+        <i class="fas fa-book-open text-7xl text-indigo-600 icon-fix"></i>
+        <h3 class="text-2xl font-bold leading-none">Fundamentals of Electrical & Electronics Engineering</h3>
+      </div>
+      <div class="bg-white p-12 rounded-3xl text-center card-hover shadow-xl border-4 border-pink-300">
+        <i class="fas fa-bolt text-7xl text-pink-600 icon-fix"></i>
+        <h3 class="text-2xl font-bold leading-none">Elementary Concepts of Electrical Systems</h3>
+      </div>
+      <div class="bg-white p-12 rounded-3xl text-center card-hover shadow-xl border-4 border-teal-300">
+        <i class="fas fa-wave-square text-7xl text-teal-600 icon-fix"></i>
+        <h3 class="text-2xl font-bold leading-none">Analog and Digital Circuits</h3>
+      </div>
+      <div class="bg-white p-12 rounded-3xl text-center card-hover shadow-xl border-4 border-orange-300">
+        <i class="fas fa-plug text-7xl text-orange-600 icon-fix"></i>
+        <h3 class="text-2xl font-bold leading-none">Fundamentals of Electric Circuits</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section id="contact" class="py-32 px-6 bg-white">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-5xl font-bold gradient-text mb-16 leading-none">Get Free Notes Instantly</h2>
+      <form action="https://formsubmit.co/yourmail@gmail.com" method="POST" class="space-y-8">
+        <input type="text" name="name" placeholder="Your Name" required class="w-full p-6 rounded-2xl border-2 border-gray-300">
+        <input type="tel" name="phone" placeholder="WhatsApp Number" required class="w-full p-6 rounded-2xl border-2 border-gray-300">
+        <select name="subject" required class="w-full p-6 rounded-2xl border-2 border-gray-300">
+          <option value="" disabled selected>Select Subject</option>
+          <option>Electronic Circuits</option>
+          <option>Analog Communication Engineering</option>
+          <option>Digital Electronics</option>
+          <option>Electric Circuits and Network Analysis</option>
+          <option>Basic Electronics</option>
+          <option>Fundamentals of Electrical and Electronics Engineering</option>
+          <option>Elementary Concepts of Electrical Systems</option>
+          <option>Analog and Digital Circuits</option>
+          <option>Fundamentals of Electric Circuits</option>
+        </select>
+        <button type="submit" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-8 rounded-2xl text-3xl font-bold card-hover">Send & Get Notes Free 💜</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="py-16 text-center bg-gray-100">
+    © 2025 Apex Academy – By Adithyan S ❤️
+  </footer>
+
+  <script>
+    // Hide loader
+    window.addEventListener('load', () => {
+      document.getElementById('loader').style.opacity = '0';
+      setTimeout(() => document.getElementById('loader').style.display = 'none', 600);
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', e => {
+        if (link.getAttribute('href').startsWith('#')) {
+          e.preventDefault();
+          document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Loading animation for Notes link
+    document.querySelectorAll('.loading-link').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        document.getElementById('loader').style.opacity = '1';
+        document.getElementById('loader').style.display = 'flex';
+        setTimeout(() => window.location.href = link.getAttribute('href'), 800);
+      });
+    });
+  </script>
+</body>
+</html>
