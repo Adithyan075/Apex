@@ -16,11 +16,13 @@
     .card-hover { transition:all 0.4s; }
     .card-hover:hover { transform:translateY(-12px); box-shadow:0 20px 40px rgba(0,0,0,0.15); }
     .icon-fix { margin-bottom: 3.5rem !important; }
+    .rotate-tick { animation: rotateTick 1s ease-in-out; }
+    @keyframes rotateTick { 0% { transform: rotate(-360deg) scale(0); } 100% { transform: rotate(0deg) scale(1); } }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-  <!-- WhatsApp Fixed Button -->
+  <!-- WhatsApp -->
   <a href="https://wa.me/919567415421" target="_blank"
     class="fixed bottom-8 right-8 z-50 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl pulse">
     <i class="fab fa-whatsapp"></i>
@@ -30,7 +32,7 @@
   <nav class="fixed top-0 w-full bg-white shadow-lg z-40">
     <div class="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row justify-center md:justify-between items-center gap-4">
       <h1 class="text-3xl md:text-4xl font-bold gradient-text">APEX ACADEMY</h1>
-      <div class="flex flex-wrap justify-center gap-4 md:gap-8 text-lg font-medium">
+      <div class="flex flex-wrap justify-center gap-4 md:gap-8 text-base md:text-lg font-medium">
         <a href="#home" class="hover:text-purple-600">Home</a>
         <a href="#faculty" class="hover:text-purple-600">Faculty</a>
         <a href="#subjects" class="hover:text-purple-600">Subjects</a>
@@ -89,8 +91,46 @@
         <i class="fas fa-broadcast-tower text-6xl text-purple-600 icon-fix"></i>
         <h3 class="text-lg font-bold leading-none">Analog Communication Engineering</h3>
       </div>
-      <!-- All 12 subjects with smaller text & icons for mobile -->
-      <!-- ... (same as your code, just smaller on mobile) -->
+      <div class="bg-white p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-blue-300">
+        <i class="fas fa-digital-tachograph text-6xl text-blue-600 icon-fix"></i>
+        <h3 class="text-lg font-bold leading-none">Digital Electronics</h3>
+      </div>
+      <div class="bg-white p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-green-300">
+        <i class="fas fa-project-diagram text-6xl text-green-600 icon-fix"></i>
+        <h3 class="text-lg font-bold leading-none">Electric Circuits & Network Analysis</h3>
+      </div>
+      <div class="bg-white p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-yellow-300">
+        <i class="fas fa-lightbulb text-6xl text-yellow-600 icon-fix"></i>
+        <h3 class="text-lg font-bold leading-none">Basic Electronics</h3>
+      </div>
+      <div class="bg-white p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-indigo-300">
+        <i class="fas fa-book-open text-6xl text-indigo-600 icon-fix"></i>
+        <h3 class="text-lg font-bold leading-none">Fundamentals of Electrical & Electronics Engineering</h3>
+      </div>
+      <div class="bg-white p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-pink-300">
+        <i class="fas fa-bolt text-6xl text-pink-600 icon-fix"></i>
+        <h3 class="text-lg font-bold leading-none">Elementary Concepts of Electrical Systems</h3>
+      </div>
+      <div class="bg-white p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-teal-300">
+        <i class="fas fa-wave-square text-6xl text-teal-600 icon-fix"></i>
+        <h3 class="text-lg font-bold leading-none">Analog and Digital Circuits</h3>
+      </div>
+      <div class="bg-white p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-orange-300">
+        <i class="fas fa-plug text-6xl text-orange-600 icon-fix"></i>
+        <h3 class="text-lg font-bold leading-none">Fundamentals of Electric Circuits</h3>
+      </div>
+      <div class="bg-white p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-red-300">
+        <i class="fas fa-laptop-code text-6xl text-red-600 icon-fix"></i>
+        <h3 class="text-lg font-bold leading-none">Digital Computer Fundamentals</h3>
+      </div>
+      <div class="bg-white p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-blue-300">
+        <i class="fas fa-hard-hat text-6xl text-blue-600 icon-fix"></i>
+        <h3 class="text-lg font-bold leading-none">Industrial Management and Safety</h3>
+      </div>
+      <div class="bg-white p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-green-300">
+        <i class="fas fa-cog text-6xl text-green-600 icon-fix"></i>
+        <h3 class="text-lg font-bold leading-none">Synchronous Machines and FHP Motors</h3>
+      </div>
     </div>
   </section>
 
@@ -98,7 +138,7 @@
   <section id="contact" class="py-20 px-6 bg-white">
     <div class="max-w-2xl mx-auto text-center">
       <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-12">Contact Us</h2>
-      <form action="https://formsubmit.co/theneptune333@gmail.com" method="POST" class="space-y-6">
+      <form id="contactForm" action="https://formsubmit.co/theneptune333@gmail.com" method="POST" class="space-y-6">
         <input type="text" name="name" placeholder="Your Name" required class="w-full p-5 rounded-2xl border-2 border-gray-300">
         <input type="tel" name="phone" placeholder="WhatsApp Number" required class="w-full p-5 rounded-2xl border-2 border-gray-300">
         <select name="subject" required class="w-full p-5 rounded-2xl border-2 border-gray-300">
@@ -120,6 +160,13 @@
         <input type="hidden" name="_next" value="https://apex-academy-one.vercel.app/">
         <button type="submit" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-6 rounded-2xl text-2xl font-bold card-hover">Contact Us</button>
       </form>
+      <div id="successMessage" class="hidden mt-12">
+        <div class="text-9xl text-green-500 mb-8">
+          <i class="fas fa-check-circle rotate-tick"></i>
+        </div>
+        <h3 class="text-5xl font-bold text-green-600 mb-4">Submitted Successfully!</h3>
+        <p class="text-2xl text-gray-700">Will contact you soon ❤️</p>
+      </div>
     </div>
   </section>
 
@@ -133,5 +180,17 @@
       <a href="https://wa.me/919567415421" target="_blank" class="text-green-500 hover:text-green-700"><i class="fab fa-whatsapp"></i></a>
     </div>
   </footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      document.getElementById('contactForm').classList.add('hidden');
+      document.getElementById('successMessage').classList.remove('hidden');
+      setTimeout(function() {
+        document.getElementById('successMessage').classList.add('hidden');
+        document.getElementById('contactForm').classList.remove('hidden');
+        document.getElementById('contactForm').reset();
+      }, 3000);
+    });
+  </script>
 </body>
 </html>
