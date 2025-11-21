@@ -7,7 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    body { background:#f8fafc; color:#1e293b; }
+    body { background:#f8fafc; color:#1e293b; font-family:'Segoe UI',sans-serif; }
     .hero-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
     .gradient-text { background: linear-gradient(90deg,#667eea,#764ba2); -webkit-background-clip:text; background-clip:text; color:transparent; }
     .pulse { animation:pulse 2s infinite; }
@@ -19,11 +19,13 @@
 </head>
 <body class="bg-gray-50">
 
+  <!-- WhatsApp Button -->
   <a href="https://wa.me/919999999999" target="_blank"
-    class="fixed bottom-8 right-8 z-50 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl pulse">
+    class="fixed bottom-8 right-8 z-50 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl pulse">
     <i class="fab fa-whatsapp"></i>
   </a>
 
+  <!-- Navbar -->
   <nav class="fixed top-0 w-full bg-white shadow-lg z-40">
     <div class="max-w-7xl mx-auto px-6 py-5 flex justify-center md:justify-between items-center">
       <h1 class="text-4xl font-bold gradient-text hidden md:block">APEX ACADEMY</h1>
@@ -34,11 +36,13 @@
     </div>
   </nav>
 
+  <!-- Hero Header -->
   <div class="hero-bg py-32 text-white text-center">
     <h1 class="text-8xl font-black mb-8 leading-none">STUDY MATERIALS</h1>
     <p class="text-3xl leading-tight">Click any card → Download from Google Drive</p>
   </div>
 
+  <!-- All 13 Cards (12 subjects + PYQ) -->
   <div class="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
     <a href="#" class="bg-white p-10 rounded-3xl text-center card-hover shadow-xl border-4 border-cyan-300">
       <i class="fas fa-microchip text-7xl text-cyan-600 icon-fix"></i>
@@ -94,6 +98,7 @@
     </a>
   </div>
 
+  <!-- Footer -->
   <footer class="py-16 text-center bg-white">
     <p class="text-xl mb-8">© 2025 Apex Academy – By Adithyan S ❤️</p>
     <div class="flex justify-center gap-8 text-4xl">
