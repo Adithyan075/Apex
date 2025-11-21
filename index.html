@@ -191,10 +191,17 @@
 
 <script>
   document.getElementById('contactForm').addEventListener('submit', function(e) {
-    // Show success message instantly
+    // Show success message with rotating tick
     document.getElementById('contactForm').classList.add('hidden');
     document.getElementById('successMessage').classList.remove('hidden');
-    // Form will still submit in background
+
+    // After 3 seconds, go back to the form
+    setTimeout(function() {
+      document.getElementById('successMessage').classList.add('hidden');
+      document.getElementById('contactForm').classList.remove('hidden');
+      // Optional: Reset the form
+      document.getElementById('contactForm').reset();
+    }, 3000); // 3000ms = 3 seconds
   });
 </script>
 
@@ -209,6 +216,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
