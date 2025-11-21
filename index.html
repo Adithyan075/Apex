@@ -8,65 +8,31 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     html { scroll-behavior: smooth; }
-    body { font-family: 'Segoe UI', sans-serif; background:#f0a0e17; color:#e2e8f0; }
-    .hero-bg {
-      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #3b82f6 100%);
-      position: relative;
-      overflow:hidden;
-    }
-    .gradient-text { background: linear-gradient(90deg,#3b82f6,#06b6d4); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    body { font-family: 'Segoe UI', sans-serif; background:#f8fafc; color:#1e293b; }
+    .hero-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); position:relative; overflow:hidden; }
+    .gradient-text { background: linear-gradient(90deg,#667eea,#764ba2); -webkit-background-clip:text; background-clip:text; color:transparent; }
     .pulse { animation:pulse 2s infinite; }
     @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(37,211,102,0.7)} 70%{box-shadow:0 0 0 20px rgba(37,211,102,0)} 100%{box-shadow:0 0 0 0 rgba(37,211,102,0)} }
     .card-hover { transition:all 0.4s; }
-    .card-hover:hover { transform:translateY(-12px); box-shadow:0 20px 40px rgba(0,0,0,0.3); }
+    .card-hover:hover { transform:translateY(-12px); box-shadow:0 20px 40px rgba(0,0,0,0.15); }
     .icon-fix { margin-bottom: 3.5rem !important; }
+    .rotate-tick { animation: rotateTick 1s ease-in-out; }
+    @keyframes rotateTick { 0% { transform: rotate(-360deg) scale(0); } 100% { transform: rotate(0deg) scale(1); } }
 
-    /* Perfect Looping Waves */
-    .sine-wave {
-      position: absolute;
-      width: 300%;
-      height: 120px;
-      bottom: 15%;
-      left: -100%;
-      background: repeating-linear-gradient(90deg, transparent, transparent 30px, rgba(255,255,255,0.4) 30px, rgba(255,255,255,0.4) 60px);
-      animation: sineMove 20s linear infinite;
-      opacity: 0.4;
-    }
-    .square-wave {
-      position: absolute;
-      width: 300%;
-      height: 100px;
-      top: 25%;
-      left: -100%;
-      background: repeating-linear-gradient(90deg, rgba(255,255,255,0.5) 0px, rgba(255,255,255,0.5) 40px, transparent 40px, transparent 80px);
-      animation: squareMove 18s linear infinite;
-      opacity: 0.4;
-    }
-    .lightning {
-      position: absolute;
-      font-size: 3rem;
-      color: rgba(255,255,255,0.6);
-      animation: lightningFlash 4s infinite;
-    }
-    .ohm-triangle {
-      position: absolute;
-      font-size: 5rem;
-      color: rgba(255,255,255,0.4);
-      animation: ohmFloat 18s linear infinite;
-    }
-    .circuit-line {
-      position: absolute;
-      border: 2px dashed rgba(255,255,255,0.3);
-      animation: circuitMove 25s linear infinite;
-    }
-    @keyframes sineMove { 0% { transform: translateX(0); } 100% { transform: translateX(-33.33%); } }
-    @keyframes squareMove { 0% { transform: translateX(0); } 100% { transform: translateX(-33.33%); } }
+    /* Constant ECE/EEE Animations in Hero */
+    .sine-wave { position:absolute; width:300%; height:120px; bottom:15%; left:-100%; background: repeating-linear-gradient(90deg, transparent, transparent 30px, rgba(255,255,255,0.4) 30px, rgba(255,255,255,0.4) 60px); animation:sineMove 20s linear infinite; opacity:0.4; }
+    .square-wave { position:absolute; width:300%; height:100px; top:25%; left:-100%; background: repeating-linear-gradient(90deg, rgba(255,255,255,0.5) 0px, rgba(255,255,255,0.5) 40px, transparent 40px, transparent 80px); animation:squareMove 18s linear infinite; opacity:0.4; }
+    .lightning { position:absolute; font-size:3rem; color:rgba(255,255,255,0.6); animation:lightningFlash 4s infinite; }
+    .ohm-triangle { position:absolute; font-size:5rem; color:rgba(255,255,255,0.4); animation:ohmFloat 18s linear infinite; }
+    .circuit-line { position:absolute; border:2px dashed rgba(255,255,255,0.3); animation:circuitMove 25s linear infinite; }
+    @keyframes sineMove { 0% { transform:translateX(0); } 100% { transform:translateX(-33.33%); } }
+    @keyframes squareMove { 0% { transform:translateX(0); } 100% { transform:translateX(-33.33%); } }
     @keyframes lightningFlash { 0%,100% { opacity:0.4; } 50% { opacity:1; text-shadow:0 0 30px #fff; } }
-    @keyframes ohmFloat { 0% { transform: translate(0,0) rotate(0deg); } 100% { transform: translate(120px,-80px) rotate(360deg); } }
-    @keyframes circuitMove { 0% { transform: translateX(-100%) rotate(0deg); } 100% { transform: translateX(100%) rotate(360deg); } }
+    @keyframes ohmFloat { 0% { transform:translate(0,0) rotate(0deg); } 100% { transform:translate(120px,-80px) rotate(360deg); } }
+    @keyframes circuitMove { 0% { transform:translateX(-100%) rotate(0deg); } 100% { transform:translateX(100%) rotate(360deg); } }
   </style>
 </head>
-<body class="bg-gray-900 text-gray-100">
+<body class="bg-gray-50 text-gray-800">
 
   <!-- WhatsApp -->
   <a href="https://wa.me/919567415421" target="_blank"
@@ -75,33 +41,28 @@
   </a>
 
   <!-- Navbar -->
-  <nav class="fixed top-0 w-full bg-black/50 backdrop-blur-lg shadow-lg z-40">
+  <nav class="fixed top-0 w-full bg-white shadow-lg z-40">
     <div class="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row justify-center md:justify-between items-center gap-4">
       <h1 class="text-3xl md:text-4xl font-bold gradient-text">APEX ACADEMY</h1>
       <div class="flex flex-wrap justify-center gap-4 md:gap-8 text-base md:text-lg font-medium">
-        <a href="#home" class="hover:text-cyan-400">Home</a>
-        <a href="#faculty" class="hover:text-cyan-400">Faculty</a>
-        <a href="#subjects" class="hover:text-cyan-400">Subjects</a>
-        <a href="study-materials.html" class="hover:text-cyan-400">Notes</a>
-        <a href="#contact" class="hover:text-cyan-400">Contact</a>
+        <a href="#home" class="hover:text-purple-600">Home</a>
+        <a href="#faculty" class="hover:text-purple-600">Faculty</a>
+        <a href="#subjects" class="hover:text-purple-600">Subjects</a>
+        <a href="study-materials.html" class="hover:text-purple-600">Notes</a>
+        <a href="#contact" class="hover:text-purple-600">Contact</a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero with Perfect Animations -->
+  <!-- Hero with Constant Animations -->
   <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-center text-white px-6 pt-20 relative">
-    <!-- Sine Wave -->
+    <!-- Animations -->
     <div class="sine-wave"></div>
-    <!-- Square Wave -->
     <div class="square-wave"></div>
-    <!-- Lightning -->
-    -->
     <div class="lightning" style="top:20%; left:10%; animation-delay:1s;"><i class="fas fa-bolt"></i></div>
     <div class="lightning" style="top:60%; right:20%; animation-delay:4s;"><i class="fas fa-bolt"></i></div>
-    <!-- Ohm's Triangle -->
     <div class="ohm-triangle" style="top:35%; left:15%;">△</div>
     <div class="ohm-triangle" style="bottom:30%; right:10%; animation-delay:9s;">△</div>
-    <!-- Circuit Lines -->
     <div class="circuit-line" style="top:18%; width:130%; transform:rotate(25deg);"></div>
     <div class="circuit-line" style="bottom:22%; width:150%; transform:rotate(-35deg); animation-delay:12s;"></div>
 
@@ -109,86 +70,86 @@
       <h1 class="text-6xl md:text-9xl font-black mb-8 leading-none">APEX<br>ACADEMY</h1>
       <p class="text-2xl md:text-5xl mb-12 leading-tight">Handwritten Notes • Clear Concepts • Top Ranks</p>
       <div class="flex flex-col md:flex-row gap-8 justify-center">
-        <a href="study-materials.html" class="bg-white text-blue-700 px-12 py-6 rounded-2xl text-2xl md:text-3xl font-bold card-hover shadow-2xl">Free Notes 🚀</a>
-        <a href="#contact" class="bg-white/20 backdrop-blur px-12 py-6 rounded-2xl text-2xl md:text-3xl font-bold card-hover border-2 border-white">Join Now 💬</a>
+        <a href="study-materials.html" class="bg-white text-purple-700 px-12 py-6 rounded-2xl text-2xl md:text-3xl font-bold card-hover shadow-2xl">Free Notes 🚀</a>
+        <a href="#contact" class="bg-white/30 backdrop-blur px-12 py-6 rounded-2xl text-2xl md:text-3xl font-bold card-hover border-2 border-white">Join Now 💬</a>
       </div>
     </div>
   </section>
 
-  <!-- Faculty -->
-  <section id="faculty" class="py-20 px-6 bg-gray-900">
+  <!-- Faculty (White Background) -->
+  <section id="faculty" class="py-20 px-6 bg-white">
     <h2 class="text-4xl md:text-5xl font-bold text-center gradient-text mb-12">Your Mentor</h2>
     <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
       <div class="text-center">
-        <img src="Apex Profile.avif" alt="Adithyan S" class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full mx-auto border-8 border-cyan-400 shadow-2xl">
+        <img src="Apex Profile.avif" alt="Adithyan S" class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full mx-auto border-8 border-purple-300 shadow-2xl">
         <p class="mt-6 text-xl font-medium">Adithyan S</p>
       </div>
       <div>
         <h3 class="text-3xl md:text-4xl font-bold mb-4">ADITHYAN S</h3>
-        <p class="text-xl md:text-2xl text-cyan-400 mb-6">Founder & Senior Faculty</p>
+        <p class="text-xl md:text-2xl text-purple-600 mb-6">Founder & Senior Faculty</p>
         <p class="text-lg md:text-xl mb-8 leading-relaxed">Diploma in Electronics • 2+ Years Teaching Experience<br>Making ECE & EEE Easy!</p>
         <p class="font-semibold mb-4 text-lg">Subjects Handled:</p>
         <div class="grid grid-cols-2 gap-4 text-sm md:text-base">
-          <div class="bg-gray-800 py-3 px-5 rounded-lg text-center">Electronic Circuits</div>
-          <div class="bg-gray-800 py-3 px-5 rounded-lg text-center">Analog Communication</div>
-          <div class="bg-gray-800 py-3 px-5 rounded-lg text-center">Digital Electronics</div>
-          <div class="bg-gray-800 py-3 px-5 rounded-lg text-center">Network Analysis</div>
-          <div class="bg-gray-800 py-3 px-5 rounded-lg text-center">Basic Electronics</div>
-          <div class="bg-gray-800 py-3 px-5 rounded-lg text-center">Basic Fundamentals</div>
+          <div class="bg-purple-100 py-3 px-5 rounded-lg text-center">Electronic Circuits</div>
+          <div class="bg-purple-100 py-3 px-5 rounded-lg text-center">Analog Communication</div>
+          <div class="bg-purple-100 py-3 px-5 rounded-lg text-center">Digital Electronics</div>
+          <div class="bg-purple-100 py-3 px-5 rounded-lg text-center">Network Analysis</div>
+          <div class="bg-purple-100 py-3 px-5 rounded-lg text-center">Basic Electronics</div>
+          <div class="bg-purple-100 py-3 px-5 rounded-lg text-center">Basic Fundamentals</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Subjects -->
-  <section id="subjects" class="py-20 px-6 bg-gray-800">
+  <section id="subjects" class="py-20 px-6 bg-gray-50">
     <h2 class="text-4xl md:text-5xl font-bold text-center gradient-text mb-16">Subjects We Master</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto">
-      <div class="bg-gray-900 p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-cyan-400">
-        <i class="fas fa-microchip text-6xl text-cyan-400 icon-fix"></i>
+      <div class="bg-white p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-cyan-300">
+        <i class="fas fa-microchip text-6xl text-cyan-600 icon-fix"></i>
         <h3 class="text-lg font-bold leading-none">Electronic Circuits</h3>
       </div>
-      <div class="bg-gray-900 p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-purple-400">
-        <i class="fas fa-broadcast-tower text-6xl text-purple-400 icon-fix"></i>
+      <div class="bg-white p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-purple-300">
+        <i class="fas fa-broadcast-tower text-6xl text-purple-600 icon-fix"></i>
         <h3 class="text-lg font-bold leading-none">Analog Communication Engineering</h3>
       </div>
-      <div class="bg-gray-900 p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-blue-400">
-        <i class="fas fa-digital-tachograph text-6xl text-blue-400 icon-fix"></i>
+      <div class="bg-white p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-blue-300">
+        <i class="fas fa-digital-tachograph text-6xl text-blue-600 icon-fix"></i>
         <h3 class="text-lg font-bold leading-none">Digital Electronics</h3>
       </div>
-      <div class="bg-gray-900 p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-green-400">
-        <i class="fas fa-project-diagram text-6xl text-green-400 icon-fix"></i>
+      <div class="bg-white p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-green-300">
+        <i class="fas fa-project-diagram text-6xl text-green-600 icon-fix"></i>
         <h3 class="text-lg font-bold leading-none">Electric Circuits & Network Analysis</h3>
       </div>
-      <div class="bg-gray-900 p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-yellow-400">
-        <i class="fas fa-lightbulb text-6xl text-yellow-400 icon-fix"></i>
+      <div class="bg-white p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-yellow-300">
+        <i class="fas fa-lightbulb text-6xl text-yellow-600 icon-fix"></i>
         <h3 class="text-lg font-bold leading-none">Basic Electronics</h3>
       </div>
-      <div class="bg-gray-900 p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-indigo-400">
-        <i class="fas fa-book-open text-6xl text-indigo-400 icon-fix"></i>
+      <div class="bg-white p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-indigo-300">
+        <i class="fas fa-book-open text-6xl text-indigo-600 icon-fix"></i>
         <h3 class="text-lg font-bold leading-none">Fundamentals of Electrical & Electronics Engineering</h3>
       </div>
-      <div class="bg-gray-900 p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-pink-400">
+      <div class="bg-white p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-pink-300">
         <i class="fas fa-bolt text-6xl text-pink-600 icon-fix"></i>
         <h3 class="text-lg font-bold leading-none">Elementary Concepts of Electrical Systems</h3>
       </div>
-      <div class="bg-gray-900 p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-teal-400">
-        <i class="fas fa-wave-square text-6xl text-teal-400 icon-fix"></i>
+      <div class="bg-white p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-teal-300">
+        <i class="fas fa-wave-square text-6xl text-teal-600 icon-fix"></i>
         <h3 class="text-lg font-bold leading-none">Analog and Digital Circuits</h3>
       </div>
-      <div class="bg-gray-900 p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-orange-400">
+      <div class="bg-white p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-orange-300">
         <i class="fas fa-plug text-6xl text-orange-600 icon-fix"></i>
         <h3 class="text-lg font-bold leading-none">Fundamentals of Electric Circuits</h3>
       </div>
-      <div class="bg-gray-900 p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-red-300">
+      <div class="bg-white p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-red-300">
         <i class="fas fa-laptop-code text-6xl text-red-600 icon-fix"></i>
         <h3 class="text-lg font-bold leading-none">Digital Computer Fundamentals</h3>
       </div>
-      <div class="bg-gray-900 p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-blue-300">
+      <div class="bg-white p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-blue-300">
         <i class="fas fa-hard-hat text-6xl text-blue-600 icon-fix"></i>
         <h3 class="text-lg font-bold leading-none">Industrial Management and Safety</h3>
       </div>
-      <div class="bg-gray-900 p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-green-300">
+      <div class="bg-white p-8 rounded-3xl text-center card-hover shadow-xl border-4 border-green-300">
         <i class="fas fa-cog text-6xl text-green-600 icon-fix"></i>
         <h3 class="text-lg font-bold leading-none">Synchronous Machines and FHP Motors</h3>
       </div>
@@ -196,20 +157,20 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="py-20 px-6 bg-gray-900">
+  <section id="contact" class="py-20 px-6 bg-white">
     <div class="max-w-2xl mx-auto text-center">
       <h2 class="text-4xl md:text-5xl font-bold gradient-text mb-12">Contact Us</h2>
       <form id="contactForm" action="https://formsubmit.co/theneptune333@gmail.com" method="POST" class="space-y-6">
-        <input type="text" name="name" placeholder="Your Name" required class="w-full p-5 rounded-2xl border-2 border-gray-600 bg-gray-800">
-        <input type="tel" name="phone" placeholder="WhatsApp Number" required class="w-full p-5 rounded-2xl border-2 border-gray-600 bg-gray-800">
-        <select name="subject" required class="w-full p-5 rounded-2xl border-2 border-gray-600 bg-gray-800">
+        <input type="text" name="name" placeholder="Your Name" required class="w-full p-5 rounded-2xl border-2 border-gray-300">
+        <input type="tel" name="phone" placeholder="WhatsApp Number" required class="w-full p-5 rounded-2xl border-2 border-gray-300">
+        <select name="subject" required class="w-full p-5 rounded-2xl border-2 border-gray-300">
           <option value="" disabled selected>Select Subject</option>
           <option>Electronic Circuits</option>
           <option>Analog Communication Engineering</option>
           <option>Digital Electronics</option>
           <option>Electric Circuits and Network Analysis</option>
           <option>Basic Electronics</option>
-          <option>Fundamentals of Electrical and Electronics Engineering</option>
+          <option>Fundamentals of Electrical & Electronics Engineering</option>
           <option>Elementary Concepts of Electrical Systems</option>
           <option>Analog and Digital Circuits</option>
           <option>Fundamentals of Electric Circuits</option>
@@ -219,26 +180,26 @@
         </select>
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_next" value="https://apex-academy-one.vercel.app/">
-        <button type="submit" class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-6 rounded-2xl text-2xl font-bold card-hover">Contact Us</button>
+        <button type="submit" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-6 rounded-2xl text-2xl font-bold card-hover">Contact Us</button>
       </form>
       <div id="successMessage" class="hidden mt-12">
         <div class="text-9xl text-green-500 mb-8">
           <i class="fas fa-check-circle rotate-tick"></i>
         </div>
         <h3 class="text-5xl font-bold text-green-600 mb-4">Submitted Successfully!</h3>
-        <p class="text-2xl text-gray-300">Will contact you soon ❤️</p>
+        <p class="text-2xl text-gray-700">Will contact you soon ❤️</p>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-16 text-center bg-black/50">
+  <footer class="py-16 text-center bg-gray-100">
     <p class="text-xl mb-8">© 2025 Apex Academy – By Adithyan S ❤️</p>
     <div class="flex justify-center gap-8 text-4xl">
-      <a href="https://linkedin.com/in/adithyanapex" target="_blank" class="text-blue-400 hover:text-blue-300"><i class="fab fa-linkedin"></i></a>
-      <a href="https://www.instagram.com/_._an.o.n.y.m.o.u.s_._?igsh=MWdpdHdxdGUycmQ5cw==" target="_blank" class="text-pink-500 hover:text-pink-400"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.facebook.com/share/1AKznSeVeD/" target="_blank" class="text-blue-500 hover:text-blue-400"><i class="fab fa-facebook"></i></a>
-      <a href="https://wa.me/919567415421" target="_blank" class="text-green-400 hover:text-green-300"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://linkedin.com/in/adithyanapex" target="_blank" class="text-blue-700 hover:text-blue-900"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.instagram.com/_._an.o.n.y.m.o.u.s_._?igsh=MWdpdHdxdGUycmQ5cw==" target="_blank" class="text-pink-600 hover:text-pink-800"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/share/1AKznSeVeD/" target="_blank" class="text-blue-600 hover:text-blue-800"><i class="fab fa-facebook"></i></a>
+      <a href="https://wa.me/919567415421" target="_blank" class="text-green-500 hover:text-green-700"><i class="fab fa-whatsapp"></i></a>
     </div>
   </footer>
 
