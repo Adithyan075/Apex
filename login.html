@@ -17,12 +17,12 @@
 <body class="bg-gray-50 text-gray-800">
 
   <div class="hero-bg min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
-    <!-- Background subtle animations (same as homepage) -->
     <div class="absolute inset-0 opacity-20">
       <div class="absolute bottom-20 w-full h-32 bg-gradient-to-t from-white/20"></div>
     </div>
 
     <div class="relative z-10 bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl p-10 w-full max-w-md border-4 border-purple-300">
+
       <div class="text-center mb-10">
         <h1 class="text-5xl md:text-6xl font-black gradient-text mb-2">VoltX</h1>
         <p class="text-3xl font-bold text-purple-700">Member Login</p>
@@ -30,7 +30,6 @@
 
       <div class="space-y-8">
         <input type="text" id="username" placeholder="Username" class="w-full p-5 rounded-2xl border-2 border-purple-300 text-lg focus:outline-none focus:border-purple-600 transition" required>
-        
         <input type="password" id="password" placeholder="Password" class="w-full p-5 rounded-2xl border-2 border-purple-300 text-lg focus:outline-none focus:border-purple-600 transition" required>
 
         <button onclick="login()" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-6 rounded-2xl text-2xl font-bold card-hover shadow-xl pulse">
@@ -42,23 +41,30 @@
         </p>
       </div>
 
-      <p class="text-center mt-8 text-gray-600">
-        Need access? <a href="https://wa.me/919567415421" class="text-purple-600 font-bold underline">Contact Admin</a>
-      </p>
+      <div class="text-center mt-10 space-y-4">
+        <p class="text-gray-600">
+          Need access? <a href="https://wa.me/919567415421" class="text-purple-600 font-bold underline">Contact Admin</a>
+        </p>
+
+        <!-- BACK TO HOME BUTTON -->
+        <a href="index.html" class="inline-block bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-4 px-10 rounded-2xl text-lg transition">
+          ← Back to Home
+        </a>
+      </div>
+
     </div>
   </div>
 
   <script>
     // === ADD YOUR MEMBERS HERE ===
     const members = [
-      {user: "alpha",      pass: "volt2025"},
-      {user: "beta",       pass: "thunder99"},
-      {user: "test",       pass: "12345"},
-      // Add new members → {user: "john", pass: "secret123"},
+      {user: "krishnau", pass: "krishnathakkudu"},
+      {user: "manshifkm", pass: "anshifikka@123"},
+      {user: "adhimon", pass: "adhimon@123"},
+      // Add new → {user: "john", pass: "secret123"},
     ];
 
-    // Redirect after successful login
-    const MEMBERS_AREA_URL = "members.html";   // Change if in different folder
+    const MEMBERS_AREA_URL = "members.html";  // Change if you moved it to a secret folder
 
     function login() {
       const username = document.getElementById("username").value.trim().toLowerCase();
@@ -74,9 +80,7 @@
       }
     }
 
-    // Allow Enter key to login
     document.addEventListener("keypress", e => { if (e.key === "Enter") login(); });
   </script>
-
 </body>
 </html>
