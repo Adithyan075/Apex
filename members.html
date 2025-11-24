@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VoltX Academy | Members Vault</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .hero-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .gradient-text { background: linear-gradient(90deg,#667eea,#764ba2); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .card-hover:hover { transform:translateY(-12px); box-shadow:0 20px 40px rgba(0,0,0,0.15); }
+    .modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center; }
+    .modal-content { background:white; padding:40px; border-radius:24px; max-width:500px; width:90%; position:relative; text-align:center; }
+    .close { position:absolute; top:16px; right:20px; font-size:32px; cursor:pointer; color:#aaa; }
+    .close:hover { color:#000; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Header -->
+  <header class="hero-bg text-white py-10 text-center shadow-2xl relative">
+    <h1 class="text-6xl md:text-7xl font-black gradient-text">VOLTX ACADEMY</h1>
+    <p class="text-2xl mt-2">Members-Only Vault ⚡️</p>
+    <a href="login.html" class="absolute top-8 right-8 bg-white/20 backdrop-blur px-6 py-3 rounded-full hover:bg-white/40 transition font-bold">← Logout</a>
+  </header>
+
+  <div class="max-w-7xl mx-auto px-6 py-16">
+    <div class="text-center mb-16">
+      <h2 class="text-5xl font-bold gradient-text mb-4">Welcome back, VoltX Elite!</h2>
+      <p class="text-2xl text-purple-700">Your exclusive resources are here</p>
+    </div>
+
+    <!-- 6 Member Blocks – Same style as Subjects section -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+
+      <!-- 1. Private Notes -->
+      <a href="#" target="_blank" class="bg-white p-10 rounded-3xl text-center card-hover shadow-2xl border-4 border-purple-300 block">
+        <i class="fas fa-file-alt text-6xl text-purple-600 mb-6"></i>
+        <h3 class="text-xl font-bold text-purple-800">Private Notes</h3>
+      </a>
+
+      <!-- 2. Class Links -->
+      <div onclick="showModal('Class Links are not updated yet. Will be live soon!')" class="bg-white p-10 rounded-3xl text-center card-hover shadow-2xl border-4 border-blue-300 cursor-pointer">
+        <i class="fas fa-video text-6xl text-blue-600 mb-6"></i>
+        <h3 class="text-xl font-bold text-blue-800">Class Links</h3>
+      </div>
+
+      <!-- 3. Exam -->
+      <div onclick="showModal('No exam scheduled at the moment')" class="bg-white p-10 rounded-3xl text-center card-hover shadow-2xl border-4 border-green-300 cursor-pointer">
+        <i class="fas fa-clipboard-check text-6xl text-green-600 mb-6"></i>
+        <h3 class="text-xl font-bold text-green-800">Exam</h3>
+      </div>
+
+      <!-- 4. Results -->
+      <div onclick="showModal('Results not published yet')" class="bg-white p-10 rounded-3xl text-center card-hover shadow-2xl border-4 border-yellow-300 cursor-pointer">
+        <i class="fas fa-trophy text-6xl text-yellow-600 mb-6"></i>
+        <h3 class="text-xl font-bold text-yellow-800">Results</h3>
+      </div>
+
+      <!-- 5. Project Status -->
+      <div onclick="showModal('Your project is under processing')" class="bg-white p-10 rounded-3xl text-center card-hover shadow-2xl border-4 border-pink-300 cursor-pointer">
+        <i class="fas fa-cogs text-6xl text-pink-600 mb-6"></i>
+        <h3 class="text-xl font-bold text-pink-800">Project Status</h3>
+      </div>
+
+      <!-- 6. Doubt Message -->
+      <div onclick="document.getElementById('doubtModal').style.display='flex'" class="bg-white p-10 rounded-3xl text-center card-hover shadow-2xl border-4 border-cyan-300 cursor-pointer">
+        <i class="fas fa-question-circle text-6xl text-cyan-600 mb-6"></i>
+        <h3 class="text-xl font-bold text-cyan-800">Doubt Message</h3>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modal (for Class Links, Exam, Results, Project) -->
+  <div id="simpleModal" class="modal" onclick="this.style.display='none'">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <span class="close" onclick="document.getElementById('simpleModal').style.display='none'">×</span>
+      <p class="text-2xl font-bold text-purple-700" id="modalText"></p>
+    </div>
+  </div>
+
+  <!-- Doubt Message Modal with Form -->
+  <div id="doubtModal" class="modal" onclick="this.style.display='none'">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <span class="close" onclick="document.getElementById('doubtModal').style.display='none'">×</span>
+      <h3 class="text-3xl font-bold gradient-text mb-6">Ask Your Doubt</h3>
+      <form action="https://formsubmit.co/theneptune333@gmail.com" method="POST" class="space-y-6">
+        <input type="text" name="name" placeholder="Your Name" required class="w-full p-4 rounded-xl border-2 border-purple-300 text-lg">
+        <textarea name="doubt" rows="6" placeholder="Type your doubt here..." required class="w-full p-4 rounded-xl border-2 border-purple-300 text-lg"></textarea>
+        <input type="hidden" name="_next" value="https://your-site.com/members.html">
+        <input type="hidden" name="_captcha" value="false">
+        <button type="submit" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-4 rounded-xl text-xl font-bold card-hover">Send Doubt</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function showModal(message) {
+      document.getElementById('modalText').innerHTML = message;
+      document.getElementById('simpleModal').style.display = 'flex';
+    }
+  </script>
+
+</body>
+</html>
