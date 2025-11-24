@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VoltX Academy | Member Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .hero-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .gradient-text { background: linear-gradient(90deg,#667eea,#764ba2); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .card-hover:hover { transform:translateY(-12px); box-shadow:0 20px 40px rgba(0,0,0,0.15); }
+    .pulse { animation:pulse 2s infinite; }
+    @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(102,126,234,0.7)} 70%{box-shadow:0 0 0 20px rgba(102,126,234,0)} 100%{box-shadow:0 0 0 0 rgba(102,126,234,0)} }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <div class="hero-bg min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
+    <!-- Background subtle animations (same as homepage) -->
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute bottom-20 w-full h-32 bg-gradient-to-t from-white/20"></div>
+    </div>
+
+    <div class="relative z-10 bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl p-10 w-full max-w-md border-4 border-purple-300">
+      <div class="text-center mb-10">
+        <h1 class="text-5xl md:text-6xl font-black gradient-text mb-2">VoltX</h1>
+        <p class="text-3xl font-bold text-purple-700">Member Login</p>
+      </div>
+
+      <div class="space-y-8">
+        <input type="text" id="username" placeholder="Username" class="w-full p-5 rounded-2xl border-2 border-purple-300 text-lg focus:outline-none focus:border-purple-600 transition" required>
+        
+        <input type="password" id="password" placeholder="Password" class="w-full p-5 rounded-2xl border-2 border-purple-300 text-lg focus:outline-none focus:border-purple-600 transition" required>
+
+        <button onclick="login()" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-6 rounded-2xl text-2xl font-bold card-hover shadow-xl pulse">
+          LOGIN
+        </button>
+
+        <p class="text-red-600 text-center font-bold text-lg hidden" id="errorMsg">
+          Incorrect username or password
+        </p>
+      </div>
+
+      <p class="text-center mt-8 text-gray-600">
+        Need access? <a href="https://wa.me/919567415421" class="text-purple-600 font-bold underline">Contact Admin</a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // === ADD YOUR MEMBERS HERE ===
+    const members = [
+      {user: "alpha",      pass: "volt2025"},
+      {user: "beta",       pass: "thunder99"},
+      {user: "test",       pass: "12345"},
+      // Add new members → {user: "john", pass: "secret123"},
+    ];
+
+    // Redirect after successful login
+    const MEMBERS_AREA_URL = "members.html";   // Change if in different folder
+
+    function login() {
+      const username = document.getElementById("username").value.trim().toLowerCase();
+      const password = document.getElementById("password").value;
+      const errorMsg = document.getElementById("errorMsg");
+
+      const valid = members.some(m => m.user.toLowerCase() === username && m.pass === password);
+
+      if (valid) {
+        window.location.href = MEMBERS_AREA_URL;
+      } else {
+        errorMsg.classList.remove("hidden");
+      }
+    }
+
+    // Allow Enter key to login
+    document.addEventListener("keypress", e => { if (e.key === "Enter") login(); });
+  </script>
+
+</body>
+</html>
