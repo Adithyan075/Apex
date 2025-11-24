@@ -33,32 +33,26 @@
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-
       <a href="#" target="_blank" class="bg-white p-10 rounded-3xl text-center card-hover shadow-2xl border-4 border-purple-300 block">
         <i class="fas fa-file-alt text-6xl text-purple-600 mb-6"></i>
         <h3 class="text-xl font-bold text-purple-800">Private Notes</h3>
       </a>
-
       <div onclick="showModal('Class Links are not updated yet. Will be live soon!')" class="bg-white p-10 rounded-3xl text-center card-hover shadow-2xl border-4 border-blue-300 cursor-pointer">
         <i class="fas fa-video text-6xl text-blue-600 mb-6"></i>
         <h3 class="text-xl font-bold text-blue-800">Class Links</h3>
       </div>
-
       <div onclick="showModal('No exam scheduled at the moment')" class="bg-white p-10 rounded-3xl text-center card-hover shadow-2xl border-4 border-green-300 cursor-pointer">
         <i class="fas fa-clipboard-check text-6xl text-green-600 mb-6"></i>
         <h3 class="text-xl font-bold text-green-800">Exam</h3>
       </div>
-
       <div onclick="showModal('Results not published yet')" class="bg-white p-10 rounded-3xl text-center card-hover shadow-2xl border-4 border-yellow-300 cursor-pointer">
         <i class="fas fa-trophy text-6xl text-yellow-600 mb-6"></i>
         <h3 class="text-xl font-bold text-yellow-800">Results</h3>
       </div>
-
       <div onclick="showModal('Your project is under processing')" class="bg-white p-10 rounded-3xl text-center card-hover shadow-2xl border-4 border-pink-300 cursor-pointer">
         <i class="fas fa-cogs text-6xl text-pink-600 mb-6"></i>
         <h3 class="text-xl font-bold text-pink-800">Project Status</h3>
       </div>
-
       <div onclick="document.getElementById('doubtModal').style.display='flex'" class="bg-white p-10 rounded-3xl text-center card-hover shadow-2xl border-4 border-cyan-300 cursor-pointer">
         <i class="fas fa-question-circle text-6xl text-cyan-600 mb-6"></i>
         <h3 class="text-xl font-bold text-cyan-800">Doubt Message</h3>
@@ -66,7 +60,7 @@
     </div>
   </div>
 
-  <!-- Simple Message Modal -->
+  <!-- Simple Modal -->
   <div id="simpleModal" class="modal" onclick="this.style.display='none'">
     <div class="modal-content" onclick="event.stopPropagation()">
       <span class="close" onclick="document.getElementById('simpleModal').style.display='none'">x</span>
@@ -74,24 +68,22 @@
     </div>
   </div>
 
-  <!-- Doubt Form Modal -->
+  <!-- Doubt Modal -->
   <div id="doubtModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="document.getElementById('doubtModal').style.display='none'">x</span>
 
-      <!-- Form (visible initially) -->
+      <!-- Form -->
       <div id="doubtForm">
         <h3 class="text-3xl font-bold gradient-text mb-6">Ask Your Doubt</h3>
-        <form id="submitDoubt" action="https://formsubmit.co/theneptune333@gmail.com" method="POST" class="space-y-6">
+        <form id="submitDoubt" class="space-y-6">
           <input type="text" name="name" placeholder="Your Name" required class="w-full p-4 rounded-xl border-2 border-purple-300 text-lg">
           <textarea name="doubt" rows="6" placeholder="Type your doubt here..." required class="w-full p-4 rounded-xl border-2 border-purple-300 text-lg"></textarea>
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="">
           <button type="submit" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-4 rounded-xl text-xl font-bold card-hover">Send Doubt</button>
         </form>
       </div>
 
-      <!-- Success Message (hidden initially) -->
+      <!-- Success Message -->
       <div id="doubtSuccess" class="hidden text-center">
         <div class="text-9xl text-green-500 mb-8">
           <i class="fas fa-check-circle rotate-tick"></i>
@@ -103,24 +95,35 @@
   </div>
 
   <script>
-    function showModal(message) {
-      document.getElementById('modalText').innerHTML = message;
+    function showModal(msg) {
+      document.getElementById('modalText').innerHTML = msg;
       document.getElementById('simpleModal').style.display = 'flex';
     }
 
-    // Handle doubt form submission
+    // AJAX submission — stays on the same page!
     document.getElementById('submitDoubt').addEventListener('submit', function(e) {
-      // Show success animation
-      document.getElementById('doubtForm').classList.add('hidden');
-      document.getElementById('doubtSuccess').classList.remove('hidden');
+      e.preventDefault(); // Stop normal redirect
 
-      // Auto close modal + refresh page after 3 seconds
-      setTimeout(() => {
-        document.getElementById('doubtModal').style.display = 'none';
-        document.getElementById('doubtForm').classList.remove('hidden');
-        document.getElementById('doubtSuccess').classList.add('hidden');
-        document.getElementById('submitDoubt').reset();
-      }, 3000);
+      const formData = new FormData(this);
+
+      fetch('https://formsubmit.co/ajax/theneptune333@gmail.com', {
+        method: 'POST',
+        body: formData
+      })
+      .then(() => {
+        // Show success + tick
+        document.getElementById('doubtForm').classList.add('hidden');
+        document.getElementById('doubtSuccess').classList.remove('hidden');
+
+        // Auto close after 3 seconds
+        setTimeout(() => {
+          document.getElementByIdcasting('doubtModal').style.display = 'none';
+          document.getElementById('doubtForm').classList.remove('hidden');
+          document.getElementById('doubtSuccess').classList.add('hidden');
+          document.getElementById('submitDoubt').reset();
+        }, 3000);
+      })
+      .catch(err => console.error(err));
     });
   </script>
 </body>
